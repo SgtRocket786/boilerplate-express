@@ -11,4 +11,8 @@ app.get("/", (req, res) => {
   res.sendFile(__dirname + "/views/index.html");
 });
 
+app.get("/", (req, res) => {
+  res.json({"message": "Hello json"});
+});
+
 module.exports = app;
