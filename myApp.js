@@ -7,7 +7,9 @@ let absolutePath = _dirname + "/views/index.html";
 
 console.log("Hello World");
 
-
+app.get("/", req, res) => {
+res.sendFile(absolutePath)
+};
 
 app.get("/", (req, res) => {
   res.type('text').send('Hello Express');
