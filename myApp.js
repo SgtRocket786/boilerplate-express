@@ -1,5 +1,6 @@
-let express = require("express");
-let app = express();
+const express = require("express");
+const app = express();
+require("dotenv").config();
 
 console.log("Hello World");
 
@@ -11,9 +12,10 @@ app.get("/", (req, res) => {
   res.sendFile(__dirname + "/views/index.html");
 });
 
-app.get("/json", (req, res) => { 
-  res.json({ message: process.env.MESSAGESTYLE === "uppercase" ? "HELLO JSON" : "Hello json" });
+// JSON API route with MESSAGESTYLE env toggle
+app.get("/json", (req, res) => {
+  const message = process.env.MESSAGESTYLE === "uppercase" ? "HELLO JSON" : "Hello json";
+  res.json({ message });
 });
-
 
 module.exports = app;
